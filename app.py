@@ -72,8 +72,8 @@ with st.sidebar:
     st.caption("Developed by FACE REC DA © 2026")
 
 # XỬ LÝ MODEL 
-FILE_ID = '1oikl54xNw6qa-p2nZoyBezuLznnSQxO9' 
-MODEL_PATH = 'models/face_reg.h5'
+FILE_ID = '1NsI5vwZaYedAin7xMbXW6lQO62uQTAu4' 
+MODEL_PATH = 'models/face_reg2.h5'
 
 @st.cache_resource
 def load_ai_model():
