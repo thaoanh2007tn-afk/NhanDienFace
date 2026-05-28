@@ -9,7 +9,7 @@ import os
 
 # CẤU HÌNH TRANG 
 st.set_page_config(
-    page_title="AI Face Recognition",
+    page_title="DA Face Recognition",
     page_icon="🎯",
     layout="wide"
 )
@@ -62,14 +62,14 @@ st.markdown("""
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/1698/1698535.png", width=100) # Logo giả định
     st.title("Settings")
-    st.info("Hệ thống sử dụng mạng CNN để nhận diện 25 thành viên trong lớp.")
+    st.info("Hệ thống sử dụng mạng CNN để nhận diện thành viên lớp DA0001.")
     st.markdown("---")
     st.write("**Hướng dẫn:**")
     st.write("1. Cho phép truy cập Camera.")
     st.write("2. Căn chỉnh mặt vào giữa khung hình.")
     st.write("3. Nhấn 'Take Photo'.")
     st.markdown("---")
-    st.caption("Developed by FACE REC DA Team © 2026")
+    st.caption("Developed by FACE REC DA © 2026")
 
 # XỬ LÝ MODEL 
 FILE_ID = '1oikl54xNw6qa-p2nZoyBezuLznnSQxO9' 
@@ -89,13 +89,13 @@ def load_ai_model():
 
 try:
     model = load_ai_model()
-    st.sidebar.success("✅ Model: Ready")
+    st.sidebar.success("Model: Ready")
 except Exception as e:
     st.sidebar.error(f"❌ Lỗi tải model: {e}")
     model = None
 
 #  GIAO DIỆN CHÍNH 
-st.markdown("<h1 class='main-title'>AI FACE RECOGNITION SYSTEM</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-title'>DA FACE RECOGNITION SYSTEM</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>Công nghệ nhận diện khuôn mặt thời gian thực dựa trên Deep Learning</p>", unsafe_allow_html=True)
 
 col1, col2 = st.columns([3, 2], gap="large")
@@ -105,7 +105,7 @@ with col1:
     img_file_buffer = st.camera_input("")
 
 with col2:
-    st.write("### 🎯 Analysis Result")
+    st.write("### 🎯 Kết Quả Phân Tích")
     if img_file_buffer is not None:
         if model is not None:
             # Tiền xử lý ảnh
@@ -139,9 +139,9 @@ with col2:
                 st.balloons()
                 st.markdown(f"""
                     <div class='result-card' style='border-left-color: #10B981;'>
-                        <p style='margin-bottom:5px; color:#6B7280;'>NHÂN VIÊN / SINH VIÊN:</p>
+                        <p style='margin-bottom:5px; color:#6B7280;'>SINH VIÊN:</p>
                         <p class='name-text'>{result_name}</p>
-                        <p style='color:#059669; font-weight:600;'>✅ Độ tin cậy: {confidence:.2f}%</p>
+                        <p style='color:#059669; font-weight:600;'> Độ tin cậy: {confidence:.2f}%</p>
                         <p style='font-size: 0.9rem; color: #6B7280;'>Trạng thái: <b>Đã xác minh</b></p>
                     </div>
                 """, unsafe_allow_html=True)
